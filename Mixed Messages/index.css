@@ -1,0 +1,72 @@
+body{
+    background-color: rgb(93, 93, 163);
+}
+
+.title{
+    display: flex;
+    height: 200px;
+    width: 100%;
+    background-color: blueviolet;
+    text-align: center;
+    -webkit-text-fill-color: azure;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.select{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;  
+
+}
+
+.choice{
+    height: 70px;
+    width:15%;  
+    display: flex;
+    background-color: rgb(13, 70, 70);
+    align-items: center;
+    justify-content: center;
+}
+
+.choicebox{
+    position: absolute;
+    width: 100px;
+    top: 200px;
+    height: 200px;
+    background-color: red;
+    display: none;
+}
+
+
+
+#first{
+    background-color: aliceblue;
+    border-style: solid dotted solid solid;
+    border-bottom-left-radius: 5% 10px;
+    border-top-left-radius: 5% 10px;
+}
+
+#second{
+    border-style: solid none solid none;
+}
+
+#third{
+    border-style: solid solid solid dotted;
+    border-top-right-radius: 5% 10px;
+    border-bottom-right-radius: 5% 10px;
+}
+
+.button{
+    display: flex;
+    align-self: center;
+    align-content: center;
+    margin: auto;
+    margin-top: 2%;
+    justify-content: center;
+    width: 40%;
+    height: 100px;
+    background-color: tomato;
+}
