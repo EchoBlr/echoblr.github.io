@@ -14,17 +14,15 @@ body{
 }
 
 .select{
+    margin: auto;
     margin-top: 5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;  
-
+    width: 80%;
 }
 
 .choice{
+    flex: 1;
     height: 70px;
-    width:15%;  
     display: flex;
     background-color: rgb(13, 70, 70);
     align-items: center;
@@ -66,7 +64,7 @@ body{
     margin: auto;
     margin-top: 2%;
     justify-content: center;
-    width: 40%;
+    width: 60%;
     height: 100px;
     background-color: tomato;
 }
