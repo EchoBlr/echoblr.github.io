@@ -17,7 +17,7 @@ body{
     margin: auto;
     margin-top: 5%;
     display: flex;
-    width: 80%;
+    width: 100%;
 }
 
 .choice{
@@ -29,18 +29,27 @@ body{
     justify-content: center;
 }
 
+.choiceList{
+    background-color: aquamarine;
+    background-size: 100%;
+    width:100%;
+}
+
 .choicebox{
     position: absolute;
-    width: 100px;
-    top: 200px;
-    height: 200px;
+    margin: auto;
+    height: fit-content;
     background-color: red;
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 
 #first{
+    display: flex;
     background-color: aliceblue;
     border-style: solid dotted solid solid;
     border-bottom-left-radius: 5% 10px;
