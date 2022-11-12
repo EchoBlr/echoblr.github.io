@@ -1,94 +1,36 @@
-let buttonWho
-let buttonWhat
+const button = document.getElementById('button');
+const selectWho = document.getElementById('whom-select');
+const selectWhat = document.getElementById('what-select');
+const textBox = document.getElementsByClassName('text-box')[0];
+const output = document.getElementsByClassName('output')[0]
+const img = document.querySelector('img')
+const textBoxInner = textBox.innerHTML;
 
-let whomIn 
-let whatIn
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
-
-class LightBox {
-    constructor(whom,what){
-        this._whom = whom;
-        this._what = what;
-        }
-    getText(){
-        switch (whom){
-            case "Мама":
-                break
-            case "Жена":
-                break
-            case "Сестра":
-                break
-            case "Папа":
-                break
-        }
-    }
-    static getWhom(){
-        const possibleWhom = ['Мама','Жена','Сестра', "Папа"]
-        return possibleWhom
-    }
-
-
-    static getWhat(){
-        const possibleWhat = ["День рожденье","Новый год"]
-    }
+const start = ['С днем рождения! ','Поздравляю с днем рождения!','В этот день хочу поздравить прекрасную женщину с днем рождения!','Поздравляем с этим замечательным днём.','Сегодня твой день рождения!',"От всего сердца хочу поздравить с чудесным праздником — днем рождения!"];
+const middle = ['Пусть светятся глаза от счастья, и энергия бьет ключом! Пусть каждый день твоей жизни будет наполнен приятными сюрпризами и подарками, улыбками и смехом. Желаю яркого и позитивного будущего с большими и малыми победами, реализованными планами и исполненными мечтаниями.', 'Пусть на дороге жизни тебе встречаются только те события, которые дарят счастье, положительные эмоции и благополучие! Крепкого здоровья, везения и всего наилучшего! Оставайся всегда молодой, как сейчас, жизнерадостной, сильной духом и телом! Пусть в жизни не будет несчастий, а на мелкие неприятности пусть всегда будет повод взглянуть с юмором!','Пусть самые смелые мечты сбываются, пусть все лучшее, что может подарить нам этот мир, будет в твоей жизни: любимый человек рядом, счастливые дети, верные друзья, интересное дело. Желаю веры в свои силы и удачи на любых дорогах.','Желаю расцветать с каждым годом все больше, всегда быть красивой и молодой. Пусть тебя окружает доброта, ласка, уважение и любовь. Желаю каждый день чувствовать себя счастливой и наполненной. Пускай весь мир будет у твоих ног!'];
+const end = ['С праздником!', "Удачи!","Доброго и веселого дня рождения", "Будь счастлива"]
+const getText = () => {
+    textBox.style.display = 'flex';
+    output.innerHTML = start[getRandomInt(start.length)]+ ' ' + middle[getRandomInt(middle.length)] + ' ' + end[getRandomInt(end.length)];
+    img.src = './img/pngegg.png'
 }
 
-class Switcheroo {
-    constructor(){
-        //для создания кнопок будет использоваться отдельный класс
-    }
+button.onclick = getText;
+img.onclick = ()=>{
+    navigator.clipboard.writeText(output.innerHTML)
+    img.src = './img/pngegg2.png'
+}
+selectWho.oninput = () =>{
+    selectWhat.disabled = false;
+    selectWho.style.backgroundColor = '#ff797938';
 }
 
-
-const addList = (butt) => {
-    const handler = document.getElementsByClassName('choicebox')[0];
-    handler.style.display = 'flex';
-    while(handler.lastElementChild){
-        handler.removeChild(handler.lastElementChild)
-    }
-    const body = butt.currentTarget;
-    body.appendChild(handler)
-    handler.style.width = "32%";
-    
-    
-
-    if (butt.currentTarget.id === 'first'){
-        const newList = LightBox.getWhom()
-        for (i =0; i<newList.length;i++){
-            const newElem = document.createElement('div')
-            newElem.classList.add('choiceList');
-            newElem.style.height = '75px'; 
-            newElem.onclick = (()=>{
-                document.body.appendChild(handler)
-                body.innerHTML = newElem.innerHTML
-                
-            })
-            newElem.innerHTML = newList[i]
-            handler.appendChild(newElem)
-        } 
-    }else if (butt.currentTarget.id === 'second'){
-        const bodyRect = butt.currentTarget.getBoundingClientRect()
-        handler.style.top = bodyRect.top
-        handler.style.left = bodyRect.left
-        const newList = LightBox.getWhom()
-        for (i =0; i<newList.length;i++){
-            const newElem = document.createElement('div')
-            newElem.classList.add('choiceList');
-            newElem.onclick = (()=>{
-                whomIn = newElem.innerHTML
-            })
-            newElem.innerHTML = newList[i]
-            handler.appendChild(newElem)
-        }}
-    
-    //После нажатия на один из вариантов выбора будут отображаться варианты, сбрасываться старые 
+selectWhat.oninput = () =>{
+    button.disabled = false;
+    button.parentElement.style.backgroundColor = '#c80505ab';
+    selectWhat.style.backgroundColor = '#ff797959';
 }
-
-
-
-
-buttonWho = document.getElementById('first');
-buttonWhat = document.getElementById('second');
-buttonWho.onclick = addList;
-buttonWhat.onclick = addList;
-
