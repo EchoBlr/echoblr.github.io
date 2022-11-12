@@ -5,16 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./index.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn">
     <title>Поздравления</title>
+    <script defer src="./Main.js"></script>
 </head>
 <body>
+    <div class="choicebox"></div>
     <div class="title"><h1>Составь свое поздравление</h1></div>
     <div class="select">
-        <div class='choice' id="first">First</div>
-        <div class='choice' id="second">Second</div>
-        <div class='choice' id="third">Third</div>
+        <div class='choice' id="first">
+            <select name="whom" id="whom-select">
+                <option selected hidden value="choice" disabled>Кого поздравляете?</option>
+                <option value="Boy">Парень</option>
+                <option value="Girl">Девушка</option>
+            </select>
+        </div>
+        <div class='choice' id="second"><select name="what" id="what-select" disabled>
+            <option selected hidden value="choice" disabled>Какой праздник?</option>
+            <option value="Birthday">День рождение</option>
+            <option value="New year">Новый год</option>
+        </select></div>
+        <div class='choice' id="third">
+            <input type="button" value="Составить поздравление" class="button" id="button" disabled>
+        </div>
     </div>
-    <div class="choicebox">show me</div>
-    <div class="button"><h1>Generate</h1></div>
+    <div class="text-box"><p class="output">Some output</p><img style="width:40px;height:40px;" src=".\img\pngegg.png" alt="Copy"></div>
 </body>
 </html>
